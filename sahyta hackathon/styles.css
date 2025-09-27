@@ -1,0 +1,254 @@
+:root {
+  --main-bg-color: #17457b; /* Background blue, adjust as needed */
+  --pattern-color: #235288;
+  --field-bg: #ffffff;
+  --label-color: #fff;
+  --button-color: #ff6f61; /* Coral button color */
+  --button-text: #fff;
+  --input-icon: #bcc0c6;
+  --radio-active: #ff6f61;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: var(--main-bg-color);
+  /* Pattern simulation */
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--main-bg-color),
+    var(--main-bg-color) 20px,
+    var(--pattern-color) 20px,
+    var(--pattern-color) 40px
+  );
+  min-height: 100vh;
+}
+
+.donate-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.donate-form {
+  background: transparent;
+  padding: 16px 0;
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.donate-form label {
+  color: var(--label-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon input,
+.input-icon select {
+  width: 100%;
+  padding: 20px 42px 20px 16px;
+  border-radius: 0; /* Changed from 10px to 0 for rectangle */
+  border: none;
+  background: var(--field-bg);
+  font-size: 1.25rem;
+  font-family: inherit;
+  font-weight: 600;
+  margin-top: 8px;
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+}
+
+.input-icon input:focus,
+.input-icon select:focus {
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.12);
+}
+
+.input-icon .icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  color: var(--input-icon);
+  pointer-events: none;
+}
+
+.input-icon select {
+  appearance: none;
+}
+
+/* Payment Radio Buttons */
+.payment-radio-group {
+  display: flex;
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.payment-radio-group label {
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.payment-radio-group input[type="radio"] {
+  display: none;
+}
+
+.custom-radio {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: middle;
+}
+
+.payment-radio-group input[type="radio"]:checked + .custom-radio {
+  border-color: var(--radio-active);
+}
+
+.payment-radio-group input[type="radio"]:checked + .custom-radio.credit {
+  border-color: var(--radio-active);
+  box-shadow: 0 0 0 2px rgba(255,111,97,0.15);
+}
+
+.payment-radio-group input[type="radio"]:checked + .custom-radio::after {
+  content: '';
+  display: block;
+  width: 9px;
+  height: 9px;
+  background: var(--radio-active);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}
+
+.volunteerBtn {
+  width: 100%;
+  padding: 18px 0;
+  background: var(--button-color);
+  color: var(--button-text);
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0; /* Changed from 32px to 0 for rectangle */
+  margin-top: 24px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background 0.2s;
+}
+
+.donate-btn:hover {
+  background: #e96457;
+}
+
+/* Style for description box */
+.input-icon textarea {
+  width: 100%;
+  padding: 20px 16px;
+  border-radius: 0; /* rectangle, consistent with inputs */
+  border: none;
+  background: var(--field-bg);
+  font-size: 1.15rem;
+  font-family: inherit;
+  font-weight: 500;
+  margin-top: 8px;
+  outline: none;
+  box-sizing: border-box;
+  resize: vertical; /* allow resizing only vertically */
+  min-height: 120px;
+  transition: box-shadow 0.2s;
+}
+
+.input-icon textarea:focus {
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.12);
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content #modalText {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.navbar button:hover {
+  background: rgba(255,255,255,0.15);
+}

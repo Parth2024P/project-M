@@ -1,0 +1,398 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat ExtraBold', Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* White background for the scrolling content */
+}
+
+/* Slideshow Container remains full height */
+.slideshow-container {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+    z-index: 1000;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Slideshow image sizing */
+.mySlides {
+    display: none; /* Hide all slides by default, JS will show one */
+    width: 100%;
+    height: 100%;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover the entire area without distortion */
+}
+
+/* Navigation for Slideshow */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 1001; /* Above slideshow and text overlays */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Top bar on slideshow */
+.slide-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center;
+    padding: 12px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    z-index: 2000; /* Ensure top bar is on top */
+}
+
+.slide-topbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.slide-topbar a:hover {
+    color: #FFD700; /* Example hover color */
+}
+
+.topnames {
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-weight: 1000;
+}
+
+.moongfali {
+    margin-top: 20px;
+    margin-right: auto; /* Pushes other items to the right */
+    font-size: 24px; /* Larger font for brand name */
+}
+
+/* Donate button in top bar */
+#donateBtnTopBar { /* Specific ID for top bar button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: #d44133;
+    border: none; /* Removed border */
+    font-size: large;
+    font-weight: 1000;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#donateBtnTopBar:hover {
+    background-color: #b71c1c;
+}
+
+
+/* Slideshow Overlays */
+.help-text-overlay {
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    z-index: 10;
+    width: 300px;
+    height: 60px;
+    border-radius: 40px;
+    background-color: #d44133;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mid-text {
+    position: absolute;
+    bottom: 42%;
+    left: 20%;
+    z-index: 10;
+    font-size: 2.5rem;
+    width: 500px;
+    font-weight: 800;
+    color: #FFD700;
+}
+
+/* New Content Section Styling (for area below slideshow) */
+.content-section {
+    display: flex;
+    justify-content: space-between; /* Pushes content to edges */
+    align-items: flex-start; /* Align items to the top */
+    padding: 80px 5%; /* Vertical padding and 5% left/right padding */
+    gap: 40px; /* Space between text and form */
+    background-color: #fff; /* White background for this section */
+}
+
+.text-content {
+    flex: 1; /* Allows text content to grow and shrink */
+    max-width: 60%; /* Occupies most of the left side */
+    padding-right: 20px; /* Space between text and form */
+}
+
+.welcome-text {
+    color: #d44133; /* Red color for "WELCOME TO UNICARE" */
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.main-heading {
+    color: #333;
+    font-size: 3em; /* Large heading */
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.description-text {
+    color: #666;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.stats-container {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    color: #333;
+}
+
+.stat-item img {
+    width: 60px; /* Size for icon */
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 2.2em;
+    font-weight: 900;
+    color: #d44133; /* Red for numbers */
+}
+
+.stat-item p {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.volunteer-btn {
+    background: none;
+    border: 2px solid #d44133;
+    color: #d44133;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.volunteer-btn:hover {
+    background-color: #d44133;
+    color: white;
+}
+
+/* Donation Form Styling - Adjusted to fit the right side */
+.donate-container {
+    width: 35%; /* Adjust width to fit the right side */
+    max-width: 450px; /* Max width to keep it from getting too wide */
+    margin: 0; /* Remove auto margins for Flexbox layout */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-image: url('images/form-bg.png'); /* Ensure this path is correct */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #2a3d66; /* Fallback color */
+    flex-shrink: 0; /* Prevents it from shrinking */
+}
+
+.donate-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #f0f0f0;
+    font-size: 0.9em;
+}
+
+.input-icon {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon input, .input-icon select {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid #445a8a;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.input-icon .icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #a0a0a0;
+}
+
+/* Styles for the new Amount field */
+#amount {
+    appearance: textfield; /* Remove number input arrows */
+}
+
+.payment-method {
+    display: flex;
+    gap: 15px;
+    margin-top: -10px; /* Adjust spacing with previous field */
+    margin-bottom: 25px; /* Space before button */
+    color: #f0f0f0;
+    font-size: 0.9em;
+}
+
+.payment-method label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Reset label margin */
+    color: #f0f0f0; /* Ensure text is visible */
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.1); /* Slightly larger radio buttons */
+}
+
+
+#donateBtnForm { /* Specific ID for form button */
+    width: 100%;
+    background-color: #d44133;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#donateBtnForm:hover {
+    background-color: #b71c1c;
+}
+
+/* Modal Styling - remains the same for pop-up functionality */
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: auto; */
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+
+
+    max-width: 300px;
+    /* max-height: 100px; */
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    display: flex; /* Use flexbox for internal content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally within the flex container */
+    justify-content: center; /* Center items vertically within the flex container */
+    gap: 15px; /* Add space between elements like text and QR */
+}
+
+
+
+.modal-content p {
+  margin: 0;
+  font-size: 14px;
+      display: block; /* Ensure it behaves as a block element for centering */
+    margin: 0 auto; 
+}
+
+#modalQR {
+    width: 220px;
+    height: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Hide slideshow dots (not used anymore) */
+.dot {
+    display: none;
+}

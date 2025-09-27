@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="hack_the_gap.css">
+</head>
+ <body>
+    <div class="slideshow-container">
+        <div class="help-text-overlay" id="help-text-overlay">
+            Request Help
+        </div>
+        <div class="mid-text">
+            If you educate a girl, you educate a nation.
+        </div>
+        <div class="slide-topbar">
+            <a class="moongfali" href="">Moongfali</a>
+            <a class="topnames" id="home" href="#home">Home</a>
+            <a class="topnames" href="#about">About</a>
+            <a class="topnames" href="#music">Music</a>
+            <a class="topnames" style="color: #DC143C;" href="#contact">Contact</a>
+            <button class="topnames" type="button" id="donateBtnTopBar">Donate</button> </div>
+
+        <div class="mySlides fade">
+            <img src="pexels-aj4xo-27597369.jpg" alt="Slide 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="pexels-ritesh-arya-1423700-3092648.jpg" alt="Slide 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="photo-1542810634-71277d95dcbb.jpeg" alt="Slide 3">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="content-section">
+        <div class="text-content">
+            <p class="welcome-text">WELCOME TO UNICARE</p>
+            <h1 class="main-heading">We are here to help<br>everyone in need</h1>
+            <p class="description-text">
+                On her way she met a copy. The copy warned the Little Blind Text, that where
+                it came from it would have been rewritten a thousand times and everything
+                that was left from its origin would be the word "and" and the Little Blind
+                Text should turn around and return to its own, safe country. But nothing the copy
+                said could convince her and so it didn't take long until a few insidious Copy
+                Writers ambushed her, made her drunk with Longe and Parole and dragged
+                her into their agency, where they abused her for their.
+            </p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <img src="../images/volunteer-icon.png" alt="Volunteers Icon"> <span>50</span>
+                    <p>Volunteers</p>
+                </div>
+                <div class="stat-item">
+                    <img src="../images/funds-icon.png" alt="Funds Icon"> <span>24,400</span>
+                    <p>Trusted Funds</p>
+                </div>
+            </div>
+            <button class="volunteer-btn" id="volunteer-btn">BECOME A VOLUNTEER</button>
+        </div>
+
+        <div class="donate-container">
+            <form class="donate-form" id="donationForm">
+                <label for="fullname">FULL NAME</label>
+                <div class="input-icon">
+                    <input type="text" id="fullname" name="fullname" required>
+                    <span class="icon">&#128100;</span>
+                </div>
+                <label for="email">EMAIL ADDRESS</label>
+                <div class="input-icon">
+                    <input type="email" id="email" name="email" required>
+                    <span class="icon">&#9993;</span>
+                </div>
+                <label for="causes">SELECT CAUSES</label>
+                <div class="input-icon">
+                    <select id="causes" name="causes" required>
+                        <option value="" disabled selected>Select</option>
+<option value="counseling" style="color: black;">Counseling</option>
+                        <option value="healthcare" style="color: black;">Health Care</option>
+                        <option value="maintenance" style="color: black;">General Maintenance</option>
+                        <option value="girls-education" style="color: black;">Girls Education</option>
+                    </select>
+                    <span class="icon">&#9662;</span>
+                </div>
+                <label for="amount">AMOUNT</label>
+                <div class="input-icon">
+                    <input type="number" id="amount" name="amount" value="5" required>
+                    <span class="icon">$</span>
+                </div>
+                <label>PAYMENT METHOD</label>
+                <div class="payment-method">
+                    <label><input type="radio" name="payment" value="Qr code" checked> QR CODE</label>
+                </div>
+                <button type="button" class="donate-btn" id="donateBtnForm">DONATE NOW</button> </form>
+        </div>
+    </div>
+
+    <div id="modalOverlay" class="modal">
+        <div class="modal-content" id="modalCard">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="modalBody">
+                <p>Please scan to donate</p>
+                <img id="modalQR" src="qr.jpg" alt="QR code">
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="hack_the_gap.js"></script> 
+</html>

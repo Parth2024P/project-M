@@ -1,0 +1,95 @@
+:root {
+  --main-bg-color: #17457b;
+  --pattern-color: #235288;
+  --field-bg: #ffffff;
+  --label-color: #fff;
+  --button-color: #e52d27; /* Red button */
+  --button-text: #fff;
+  --input-icon: #7a8ba1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: var(--main-bg-color);
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--main-bg-color),
+    var(--main-bg-color) 20px,
+    var(--pattern-color) 20px,
+    var(--pattern-color) 40px
+  );
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.donate-container {
+  width: 100%;
+  max-width: 480px;
+}
+
+.donate-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.donate-form label {
+  color: var(--label-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon input,
+.input-icon select {
+  width: 100%;
+  padding: 18px 46px 18px 16px;
+  border-radius: 0;   /* flat edges */
+  border: none;
+  background: var(--field-bg);
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-icon .icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  color: var(--input-icon);
+  pointer-events: none;
+}
+
+.input-icon select {
+  appearance: none;
+}
+
+.donate-btn {
+  width: 100%;
+  padding: 18px 0;
+  background: var(--button-color);
+  color: var(--button-text);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px; /* only button slightly rounded */
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.donate-btn:hover {
+  background: #b71c1c;
+}
